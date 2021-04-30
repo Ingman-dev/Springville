@@ -3,7 +3,7 @@ import app from "./restClient";
 import { authClient } from "./authClient";
 
 const restClientOptions = {
-  id: "alias", // In this example, the database uses '_id' rather than 'id'
+  id: "_id", // In this example, the database uses '_id' rather than 'id'
   usePatch: true, // Use PATCH instead of PUT for updates
   users: {
     // Options for individual resources can be set by adding an object with the same name. Optional.

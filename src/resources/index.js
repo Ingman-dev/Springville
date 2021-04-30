@@ -6,6 +6,8 @@ import { EPLayout } from "./layout";
 
 import { OrganisationsResource } from "./organisations/organisations";
 
+import { FormsResource } from "../forms";
+
 import { CountriesResource } from "./system/countries";
 import { VatsResource } from "./system/vats";
 
@@ -23,6 +25,7 @@ export const Resources = () => {
     ret.push(OrganisationsResource(permissions));
     ret.push(CountriesResource(permissions));
     ret.push(VatsResource(permissions));
+    ret.push(FormsResource(permissions));
     setResources(ret);
   }, [organisation, permissions]);
 
