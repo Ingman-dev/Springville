@@ -1,28 +1,34 @@
 import * as React from "react";
 import { useMediaQuery } from "@material-ui/core";
-import { List, Datagrid, TextField, EditButton, TextInput, Filter, SimpleList  } from "react-admin";
+import {
+  List,
+  Datagrid,
+  TextField,
+  FileField,
+  SimpleList,
+  Filter,
+  TextInput,
+  EditButton,
+  DeleteButton
+} from "react-admin";
 
 const Filters = (props) => (
   <Filter {...props}>
-    <TextInput label="Search" source="title" alwaysOn />
+    <TextInput label="Search" source="formNo" alwaysOn />
   </Filter>
 );
 
 export const WebList = (props) => (
-  <List filters={<Filters />} {...props}>
+  <List filters={<Filters />} {...props} bulkActionButtons={false}>
     <Datagrid rowClick="edit">
-      <TextField source="alias" />
-      <TextField source="name" />
+      <TextField label="formNo" source="formNo" />
       <TextField source="title" />
-      <TextField source="companyName" />
-      <TextField source="phone" />
-      <TextField source="email" />
-      <TextField source="organisationNumber" />
+      <FileField label="Download" source="downloadUrl" title="fileName" />
       <EditButton />
+      <DeleteButton/>
     </Datagrid>
   </List>
 );
-
 const MobileList = (props) => (
   <List {...props}>
     <SimpleList
@@ -33,7 +39,7 @@ const MobileList = (props) => (
   </List>
 );
 
-export const OrganisationsList = (props) => {
+export const MyFormsList = (props) => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   if (isSmall) return <MobileList {...props} />;
   return <WebList {...props} />;

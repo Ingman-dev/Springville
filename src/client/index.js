@@ -9,6 +9,11 @@ const restClientOptions = {
     // Options for individual resources can be set by adding an object with the same name. Optional.
     id: "_id", // If this specific table uses an id field other than 'id'. Optional.
   },
+  organisations: {
+    id: "alias"
+  },
+
+  
 };
 
 const dataProvider = restClient(app, restClientOptions);

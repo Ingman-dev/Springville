@@ -3,13 +3,12 @@ import { AdminUI, Resource, usePermissions } from "react-admin";
 import { useSelector } from "react-redux";
 import { Dashboard } from "../containers/Dashboard";
 import { EPLayout } from "./layout";
-
 import { OrganisationsResource } from "./organisations/organisations";
-
 import { FormsResource } from "../forms";
-
 import { CountriesResource } from "./system/countries";
 import { VatsResource } from "./system/vats";
+import { MyFormsResource } from "../myForms"
+
 
 export const Resources = () => {
   const [resources, setResources] = useState([]);
@@ -22,11 +21,12 @@ export const Resources = () => {
 
     if (true || (organisation && organisation.alias)) {
     }
-    ret.push(OrganisationsResource(permissions));
-    ret.push(CountriesResource(permissions));
-    ret.push(VatsResource(permissions));
-    ret.push(FormsResource(permissions));
-    setResources(ret);
+      ret.push(OrganisationsResource(permissions));
+      ret.push(CountriesResource(permissions));
+      ret.push(VatsResource(permissions));
+      ret.push(FormsResource(permissions));
+      ret.push(MyFormsResource(permissions));
+      setResources(ret);
   }, [organisation, permissions]);
 
   return (

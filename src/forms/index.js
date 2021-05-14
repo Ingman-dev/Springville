@@ -7,5 +7,5 @@ export const FormsResource = (permissions) => {
         options: { label: "Forms-register" },
         icon: AssignmentIcon,
         list: FormsList,
-    }; 
+     }; 
 };
