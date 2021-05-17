@@ -21,11 +21,11 @@ export const Resources = () => {
 
     if (true || (organisation && organisation.alias)) {
     }
+      ret.push(MyFormsResource(permissions));
       ret.push(OrganisationsResource(permissions));
       ret.push(CountriesResource(permissions));
       ret.push(VatsResource(permissions));
       ret.push(FormsResource(permissions));
-      ret.push(MyFormsResource(permissions));
       setResources(ret);
   }, [organisation, permissions]);
 
