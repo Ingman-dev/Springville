@@ -1,5 +1,5 @@
 import { restClient } from "ra-data-feathers";
-import app from "./restClient";
+import  app  from "./restClient";
 import { authClient } from "./authClient";
 
 const restClientOptions = {
@@ -16,7 +16,10 @@ const restClientOptions = {
   
 };
 
-const dataProvider = restClient(app, restClientOptions);
+
+
+const dataProvider = restClient(app, restClientOptions );
 const authProvider = authClient(app, {});
 
-export { dataProvider, authProvider };
+
+export  { dataProvider, authProvider };

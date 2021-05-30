@@ -9,7 +9,6 @@ import { CountriesResource } from "./system/countries";
 import { VatsResource } from "./system/vats";
 import { MyFormsResource } from "../myForms"
 
-
 export const Resources = () => {
   const [resources, setResources] = useState([]);
   const organisation = useSelector((state) => state.organisation);

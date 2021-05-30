@@ -19,12 +19,12 @@ const Filters = (props) => (
 );
 
 export const WebList = (props) => (
-  <List filters={<Filters />} {...props} bulkActionButtons={false}>
-    <Datagrid rowClick="edit">
-      <TextField label="formNo" source="formNo" />
+  <List filters={<Filters />} {...props} bulkActionButtons={false} >
+    <Datagrid>
+      <TextField label="organisation" source="formNo" />
       <TextField source="title" />
+      <EditButton label="Edit" />
       <FileField label="Download" source="downloadUrl" title="fileName" />
-      <EditButton />
       <DeleteButton/>
     </Datagrid>
   </List>
@@ -32,9 +32,9 @@ export const WebList = (props) => (
 const MobileList = (props) => (
   <List {...props}>
     <SimpleList
-      primaryText={(record) => record.title}
-      secondaryText={(record) => `${record.phone || ""} ${record.email || ""}`}
-      tertiaryText={(record) => record.organisationNumber}
+      primaryText={(record) => record.formNo}
+      secondaryText={(record) => `${record.title || ""} ${record.Edit || ""}`}
+      tertiaryText={(record) => record.downloadUrl}
     />
   </List>
 );

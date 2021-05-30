@@ -1,6 +1,7 @@
 import { MyFormsList }  from './myForms.list';
 import { MyFormsEdit }  from './myForms.edit';
-import { MyFromsCreate }  from './myForms.create';
+import {MyFromsCreate}  from './myForms.create';
+
 import  AssignmentIcon  from '@material-ui/icons/Assignment';
 
 export const MyFormsResource = (permissions) => {
@@ -10,6 +11,6 @@ export const MyFormsResource = (permissions) => {
         icon: AssignmentIcon,
         list: MyFormsList,
         edit: MyFormsEdit,
-        create: MyFromsCreate,
+        create: MyFromsCreate
     }; 
 };

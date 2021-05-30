@@ -1,15 +1,14 @@
 // in src/App.js
 import * as React from "react";
 import { AdminContext } from "react-admin";
-import { dataProvider, authProvider } from "./client";
+import { authProvider, dataProvider} from "./client";
 import { Resources } from "./resources";
-
+import  addUploadFeature  from "./client/dataProvider"
 
 
 const App = () => (
-  <AdminContext dataProvider={dataProvider} authProvider={authProvider}>
+  <AdminContext dataProvider={addUploadFeature(dataProvider)} authProvider={authProvider}>
     <Resources />
   </AdminContext>
 );
 export default App;
-// authProvider, authProvider={authProvider}

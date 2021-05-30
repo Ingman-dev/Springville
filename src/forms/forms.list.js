@@ -15,15 +15,15 @@ export const WebList = (props) => (
         <TextField label="Organisation" source="organisation" />
         <TextField label="Filesize" source="size"/>
         <TextField source="title" />
-        <FileField label="Download" source="downloadUrl" title="fileName" />
+        <FileField label="Download" source="downloadUrl" title="fileName" download={true} />
       </Datagrid>
     </List>
   );
   const MobileList = (props) => (
     <List {...props}>
       <SimpleList
-        primaryText={(record) => record.title}
-        secondaryText={(record) => `${record.phone || ""} ${record.email || ""}`}
+        primaryText={(record) => record.organisation}
+        secondaryText={(record) => `${record.title || ""} ${record.downloadUrl || "Download"}`}
         tertiaryText={(record) => record.organisationNumber}
       />
     </List>
