@@ -9,7 +9,8 @@ import {
   Filter,
   TextInput,
   EditButton,
-  DeleteButton
+  DeleteButton,
+
 } from "react-admin";
 
 const Filters = (props) => (
@@ -18,13 +19,14 @@ const Filters = (props) => (
   </Filter>
 );
 
+
 export const WebList = (props) => (
   <List filters={<Filters />} {...props} bulkActionButtons={false} >
     <Datagrid>
-      <TextField label="organisation" source="formNo" />
+      <TextField label="organisation" source="formNo"  />
       <TextField source="title" />
       <EditButton label="Edit" />
-      <FileField label="Download" source="downloadUrl" title="fileName" />
+      <FileField label="Download" source="downloadUrl" title="fileName"/>
       <DeleteButton/>
     </Datagrid>
   </List>

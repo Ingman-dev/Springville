@@ -8,32 +8,27 @@ const convertFileToBase64 = (file) =>
   });
 
 const addUploadFeature = (requestHandler) => (type, resource, params) => {
-  //Hårdkodad resource.
   if (
     (type === "UPDATE" || type === "CREATE") &&
     resource === "organisations/springville-bank/forms-register"
   ) {
-    if (params.data.uri && params.data.uri.length) {
+    if (params.data.uri) {
+      const newFiles = params.data.uri;
+      if (!newFiles instanceof File) {
+        return Promise.reject("Error: Not a file...");
+      }
 
-      const newFiles = params.data.uri.filter((p) => p.rawFile instanceof File);
-
-      return Promise.all(newFiles.map(convertFileToBase64))
-        .then(async (base64files) =>
-          base64files.map((file64, index) => {
-            const uriFile = {
-              uri: file64,
-              fileName: `${newFiles[index].fileName}`,
-            };
-            return uriFile;
-          })
-        )
+      return Promise.resolve(convertFileToBase64(newFiles))
+        .then(async (base64files) => ({
+          uri: base64files,
+          fileName: `${newFiles.fileName}`,
+        }))
         .then(async (transformedNewFiles) => {
           const data = {
             ...params.data,
-            fileName: transformedNewFiles[0].fileName,
-            uri: transformedNewFiles[0].uri,
+            fileName: transformedNewFiles.fileName,
+            uri: transformedNewFiles.uri,
           };
-          console.log(transformedNewFiles);
           const result = await requestHandler(type, resource, {
             ...params,
             data,
