@@ -1,6 +1,6 @@
 # signatories Admin (admin-web )
-
-Enkel produktinmatning som kan skötas av restaurangen.
+Delar av detta system byggde jag och en studiekamrat som vårt examensarbete på B-nivå.
+Vi byggde det med React, React-admin och material-UI.
 
 ## Endpoints
 
