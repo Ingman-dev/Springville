@@ -16,7 +16,7 @@ export const MyFormsForm = (props) => {
     <FormWithRedirect
       {...props}
       render={(formProps) => (
-        <form>
+        <form redirect="">
           <Box p="1em">
             <Box display="flex">
               <Box flex={2} mr="1em">
@@ -42,9 +42,8 @@ export const MyFormsForm = (props) => {
                       label="Upload file (.pdf)"
                       accept="application/pdf"
                       multiple={false}
-                      validate={required()}
                     >
-                      <FileField source="url" title="fileName" />
+                      <FileField source="fileName" title="fileName" />
                     </FileInput>
                   </Box>
                 </Box>
@@ -52,7 +51,7 @@ export const MyFormsForm = (props) => {
             </Box>
           </Box>
           <EPToolbar {...formProps} />
-        </form>
+        </form >
       )}
     />
   );
